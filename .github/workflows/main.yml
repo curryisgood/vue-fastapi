@@ -31,18 +31,18 @@ jobs:
     - name: Build Docker image
       run: |
         pwd && ls
-        docker build -t curryisgood/backend:${{ github.run_number }} ./backend
-        docker build -t curryisgood/frontend:${{ github.run_number }} ./frontend
-        docker tag curryisgood/frontend:${{ github.run_number }} curryisgood/frontend:latest
-        docker tag curryisgood/backend:${{ github.run_number }} curryisgood/backend:latest
+        docker build -t imymecjy/backend:${{ github.run_number }} ./backend
+        docker build -t imymecjy/frontend:${{ github.run_number }} ./frontend
+        docker tag imymecjy/frontend:${{ github.run_number }} imymecjy/frontend:latest
+        docker tag imymecjy/backend:${{ github.run_number }} imymecjy/backend:latest
         
     # 5. Docker Hub에 이미지 푸시
     - name: Push Docker image to Docker Hub
       run: |
-        docker push curryisgood/backend:${{ github.run_number }}
-        docker push curryisgood/frontend:${{ github.run_number }}
-        docker push curryisgood/backend:latest
-        docker push curryisgood/frontend:latest
+        docker push imymecjy/backend:${{ github.run_number }}
+        docker push imymecjy/frontend:${{ github.run_number }}
+        docker push imymecjy/backend:latest
+        docker push imymecjy/frontend:latest
         
     # 6. SSH 설정: GitHub Secrets에서 EC2 접근에 필요한 키와 주소 설정
     - name: Set up SSH keys
